@@ -7,11 +7,14 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'd-ocean-translate-tutorial';
-  constructor(translate: TranslateService) {
-    translate.addLangs(['en', 'klingon']);
+  constructor(public translate: TranslateService) {
+    translate.addLangs(['en', 'de']);
     translate.setDefaultLang('en');
     translate.use('en');
+    translate.stream('welcomeMessage').subscribe(console.log);
     translate.get('welcomeMessage').subscribe(console.log);
+  }
+  ngAfterContentInit() {
+    this.translate.use('de');
   }
 }
