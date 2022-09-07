@@ -12,6 +12,6 @@ export class AppComponent {
     translate.addLangs(['en', 'klingon']);
     translate.setDefaultLang('en');
     translate.use('en');
-    console.log(translate.get('welcomeMessage'));
+    translate.get('welcomeMessage').subscribe(console.log);
   }
 }
